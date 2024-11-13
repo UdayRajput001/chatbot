@@ -1,0 +1,7 @@
+fastapi 
+uvicorn 
+langchain-ollama 
+jinja2 
+aiohttp
+python-multipart
+pymongo

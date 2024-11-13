@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+</head>
+<body>
+    <h1>Chat with the Bot</h1>
+    <form id="chat-form">
+        <textarea id="user-message" rows="4" cols="50" placeholder="Ask a question..."></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Response:</h2>
+    <div id="bot-response"></div>
+
+    <h2>Chat History:</h2>
+    <div id="chat-history"></div>
+
+    <script>
+        document.getElementById("chat-form").addEventListener("submit", async function(e) {
+            e.preventDefault();
+            
+            const userMessage = document.getElementById("user-message").value;
+
+            // Send the user's message to FastAPI backend
+            const response = await fetch("http://127.0.0.1:8000/chat/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ user_message: userMessage }),
+            });
+            const data = await response.json();
+
+            // Display the response
+            document.getElementById("bot-response").innerText = `Bot: ${data.bot_response}`;
+
+            // Fetch and display chat history
+            const historyResponse = await fetch("http://127.0.0.1:8000/history/");
+            const history = await historyResponse.json();
+            let historyHtml = "<ul>";
+            history.forEach(chat => {
+                historyHtml += `<li>User: ${chat.user_message} - Bot: ${chat.bot_response}</li>`;
+            });
+            historyHtml += "</ul>";
+            document.getElementById("chat-history").innerHTML = historyHtml;
+        });
+    </script>
+</body>
+</html>
