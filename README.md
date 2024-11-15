@@ -24,4 +24,4 @@ This is a simple ChatBot web application where you can chat with a bot and view 
 - I downloaded **Ollama** and used the **Llama 3.2** model to power the bot's responses.
 - The code for both files was written to integrate the frontend with the backend, creating a seamless chat experience.
 
-# Only Use main.py and index.html 
+**Only Use main.py and index.html** 
