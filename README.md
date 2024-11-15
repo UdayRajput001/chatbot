@@ -25,3 +25,5 @@ This is a simple ChatBot web application where you can chat with a bot and view 
 - The code for both files was written to integrate the frontend with the backend, creating a seamless chat experience.
 
 **Only Use main.py and index.html** 
+
+![image](https://github.com/user-attachments/assets/17a55938-9730-4e95-88de-2b3ea5e758c5)
