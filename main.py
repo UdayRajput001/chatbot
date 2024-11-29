@@ -17,7 +17,7 @@ app.add_middleware(
 )
 
 # MongoDB configuration
-MONGO_URI = "mongodb+srv://udsingh468:Qwerty467@cluster0.5d2yg.mongodb.net/"
+MONGO_URI = "enter your mongoDB connection string here"
 client = pymongo.MongoClient(MONGO_URI)
 db = client["Ollama"]
 collection = db["data"]
