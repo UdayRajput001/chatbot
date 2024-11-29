@@ -42,7 +42,6 @@ class ChatMessage(BaseModel):
 
 def generate_response(text: str):
     try:
-        # Define a prompt for model specialization (you can customize this)
         specialization_prompt = (
             "You are an AI assistant specialized in answering questions about various topics. "
             "Your responses should be informative, helpful, and clear. You can answer questions "
